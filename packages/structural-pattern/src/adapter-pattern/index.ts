@@ -1,10 +1,10 @@
 
-interface Repository {
+export interface Repository {
   get<T>(key: string): Promise<T>
   set<T>(key: string, value: T): Promise<void>
 }
 
-class IndexedDBStorage implements Repository {
+export class IndexedDBStorage implements Repository {
   constructor(public db: IDBDatabase, public storeName: string = "default") {}
 
   static open(name: string): Promise<IndexedDBStorage> {
